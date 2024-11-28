@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="حاسبة تحويل الضغط من KPA إلى PSI - تحويل كيلو باسكال إلى رطل لكل بوصة مربعة بسهولة ودقة عالية" />
+    <meta name="keywords" content="تحويل kpa الى psi, محول الضغط, كيلو باسكال, رطل لكل بوصة مربعة, حاسبة الضغط" />
+    <title>تحويل KPA إلى PSI | محول الضغط الاحترافي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+                تحويل KPA إلى PSI
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                محول دقيق وسهل الاستخدام للتحويل بين وحدات الضغط KPA و PSI
+            </p>
+        </div>
+
+        <!-- Converter Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-12 transform transition-all hover:shadow-2xl">
+            <div class="max-w-2xl mx-auto">
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-lg font-medium mb-3" for="kpa-input">
+                        أدخل قيمة الضغط (KPA):
+                    </label>
+                    <div class="relative">
+                        <input type="number" 
+                            id="kpa-input" 
+                            class="w-full px-4 py-3 text-lg bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                            placeholder="مثال: 100">
+                        <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">KPA</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mb-8">
+                    <button onclick="convertToPsi()" 
+                        class="flex-1 bg-blue-600 text-white py-4 px-6 rounded-xl text-lg font-medium hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all">
+                        تحويل
+                    </button>
+                    <button onclick="clearInput()" 
+                        class="flex-1 bg-gray-100 text-gray-700 py-4 px-6 rounded-xl text-lg font-medium hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 transition-all">
+                        مسح
+                    </button>
+                </div>
+
+                <div id="result" class="hidden">
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+                        <p class="text-lg text-gray-700 mb-2">النتيجة:</p>
+                        <p class="text-3xl font-bold text-green-600">
+                            <span id="result-value"></span> PSI
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Definitions Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">ما هو KPA؟</h2>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                    الكيلو باسكال (KPA) هو وحدة قياس الضغط في النظام الدولي للوحدات. 
+                    يساوي 1 كيلو باسكال 1000 باسكال، ويستخدم بشكل شائع في قياس ضغط الإطارات 
+                    والضغط الجوي والأنظمة الصناعية.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">ما هو PSI؟</h2>
+                </div>
+                <p class="text-gray-600 leading-relaxed">
+                    الـ PSI (رطل لكل بوصة مربعة) هو وحدة قياس الضغط الشائعة في الولايات المتحدة. 
+                    يقيس مقدار القوة بالرطل المؤثرة على مساحة بوصة مربعة واحدة.
+                </p>
+            </div>
+        </div>
+
+        <!-- Conversion Table -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">جدول التحويل السريع</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-6 py-4 text-right text-lg font-semibold text-gray-900 border-b">KPA</th>
+                            <th class="px-6 py-4 text-right text-lg font-semibold text-gray-900 border-b">PSI</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 text-gray-700">100</td>
+                            <td class="px-6 py-4 text-gray-700">14.504</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 text-gray-700">200</td>
+                            <td class="px-6 py-4 text-gray-700">29.008</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 text-gray-700">300</td>
+                            <td class="px-6 py-4 text-gray-700">43.511</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 text-gray-700">400</td>
+                            <td class="px-6 py-4 text-gray-700">58.015</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 text-gray-700">500</td>
+                            <td class="px-6 py-4 text-gray-700">72.519</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Conversion Method -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">كيفية التحويل من KPA إلى PSI</h2>
+            <div class="space-y-6">
+                <p class="text-gray-600">
+                    لتحويل الضغط من KPA إلى PSI، استخدم المعادلة التالية:
+                </p>
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 text-center">
+                    <p class="text-xl font-bold text-blue-900">PSI = KPA × 0.14504</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <p class="text-lg font-medium text-gray-900 mb-2">مثال:</p>
+                    <p class="text-gray-600">
+                        لتحويل 100 KPA إلى PSI:
+                        <br>
+                        100 × 0.14504 = 14.504 PSI
+                    </p>
+                </div>
+            </div>
+        </div>
+
+<!-- Other Converters -->
+<div class="bg-white rounded-2xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">محولات الضغط الأخرى</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="تحويل KPA إلى Bar.html" class="block p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+            <span class="text-lg font-medium text-blue-600">تحويل KPA إلى Bar</span>
+        </a>
+        <a href="تحويل KPA إلى Pascal.html" class="block p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+            <span class="text-lg font-medium text-blue-600">تحويل KPA إلى Pascal</span>
+        </a>
+        <a href="تحويل PSI إلى Bar.html" class="block p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+            <span class="text-lg font-medium text-blue-600">تحويل PSI إلى Bar</span>
+        </a>
+    </div>
+</div>
+    </main>
+
+    <script>
+        function convertToPsi() {
+            const kpaInput = document.getElementById('kpa-input');
+            const resultDiv = document.getElementById('result');
+            const resultValue = document.getElementById('result-value');
+            
+            if (kpaInput.value) {
+                const kpa = parseFloat(kpaInput.value);
+                const psi = (kpa * 0.14504).toFixed(3);
+                resultValue.textContent = psi;
+                resultDiv.classList.remove('hidden');
+                resultDiv.classList.add('animate-fade-in');
+            }
+        }
+
+        function clearInput() {
+            const kpaInput = document.getElementById('kpa-input');
+            const resultDiv = document.getElementById('result');
+            
+            kpaInput.value = '';
+            resultDiv.classList.add('hidden');
+        }
+
+        // Handle Enter key
+        document.getElementById('kpa-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                convertToPsi();
+            }
+        });
+    </script>
+</body>
+</html>
